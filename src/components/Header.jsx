@@ -3,7 +3,7 @@ import React from "react";
 const Header = () => {
   return (
     <>
-      <h1>El Gaucho Nyheter</h1>
+      <h1 id='header'>El Gaucho Nyheter</h1>
     </>
   );
 };

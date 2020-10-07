@@ -3,6 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import axios from "axios";
+
+let apiUrl;
+if (process.env.NODE_ENV === "production") {
+  apiUrl = "https://";
+} else {
+  apiUrl = "http://localhost:3000/api/v1";
+}
+axios.defaults.baseURL = apiUrl;
 
 ReactDOM.render(
   <React.StrictMode>
