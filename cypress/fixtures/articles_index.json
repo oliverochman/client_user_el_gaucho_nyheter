@@ -1,0 +1,24 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Soluta quam vero eos voluptatibus velit",
+      "lead": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut odit eius facere tempora expedita, ratione itaque quidem sequi totam nulla? Eaque possimus sit a officia."
+    },
+    {
+      "id": 2,
+      "title": "Kista is on fire",
+      "lead": "Least cars in sweden ratione itaque quidem sequi totam nulla? Eaque possimus sit a officia."
+    },
+    {
+      "id": 3,
+      "title": "Stockholm is under attack",
+      "lead": "Blanditiis numquam id dolorum? Mollitia necessitatibus velit blanditiis iure, dicta unde."
+    },
+    {
+      "id": 4,
+      "title": "New wave of infected people",
+      "lead": "Dolor, enim maxime reiciendis voluptatem et illum modi cupiditate dolorum deserunt maiores pariatur?"
+    }
+  ]
+}
