@@ -5,7 +5,7 @@ import axios from "axios";
 import DisplayArticles from "../components/DisplayArticles";
 
 describe("<DisplayArticles />", () => {
-  it("Shuold fetch articles from API using Axios", () => {
+  it("Should fetch articles from API using Axios", () => {
     const axiosSpy = jest.spyOn(axios, "get");
     shallow(<DisplayArticles />);
     expect(axiosSpy).toBeCalled();
