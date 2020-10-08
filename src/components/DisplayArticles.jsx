@@ -3,16 +3,28 @@ import { getArticles } from "../modules/articles";
 
 class DisplayArticles extends Component {
   state = {
-    articlesList: [],
+    articlesArray: [],
   };
 
   componentDidMount = async () => {
     let result = await getArticles();
-    this.setState({ articlesList: result });
+    this.setState({ articlesArray: result });
   };
 
   render() {
-    return <></>;
+    let articlesList;
+    if (this.state.articlesArray.length > 0) {
+      articlesList = this.state.articlesArray.map((article) => {
+        return (
+          <div id={"article-" + article.id}>
+            <h1>{article.title}</h1>
+            <h3>{article.lead}</h3>
+          </div>
+        );
+      });
+    }
+
+    return <>{articlesList}</>;
   }
 }
 
