@@ -1,17 +1,13 @@
 import React from "react";
 import { shallow } from "enzyme";
+import axios from "axios";
 
 import DisplayArticles from "../components/DisplayArticles";
 
-describe("DisplayArticles", () => {
-  const wrapper = shallow(
-    <DisplayArticles />
-  );
-
-    it('should check `componentDidMount()`', () => {
-      const instance = wrapper.instance(); 
-      jest.spyOn(instance, 'getArticles'); 
-      instance.componentDidMount();
-      expect(instance.getArticles).toHaveBeenCalledTimes(1); 
-    });
-})
+describe("<DisplayArticles />", () => {
+  it("Shuold fetch articles from API using Axios", () => {
+    const axiosSpy = jest.spyOn(axios, "get");
+    shallow(<DisplayArticles />);
+    expect(axiosSpy).toBeCalled();
+  });
+});
