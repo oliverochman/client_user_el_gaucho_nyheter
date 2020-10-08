@@ -6,4 +6,5 @@ body {
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: repeat(2, auto);
+  margin-left: 5%;
 }
