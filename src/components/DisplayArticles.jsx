@@ -16,15 +16,21 @@ class DisplayArticles extends Component {
     if (this.state.articlesArray.length > 0) {
       articlesList = this.state.articlesArray.map((article) => {
         return (
-          <div id={"article-" + article.id}>
-            <h1>{article.title}</h1>
-            <h3>{article.lead}</h3>
-          </div>
+          <>
+            <div id={"article-" + article.id}>
+              <h1>{article.title}</h1>
+              <h3>{article.lead}</h3>
+            </div>
+          </>
         );
       });
     }
 
-    return <>{articlesList}</>;
+    return (
+      <>
+        <div className="articles-container">{articlesList}</div>
+      </>
+    );
   }
 }
 
