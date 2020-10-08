@@ -13,12 +13,12 @@ describe("Visitor can see articles", () => {
   });
   it("shows first article ", () => {
     cy.get("#article-1").within(() => {
-      cy.contains("Manchester City loves e-scooters");
+      cy.contains("Ny studie: Möjligt att utplåna fattigdomen och samtidigt rädda klimatet");
     });
   });
   it("shows second article", () => {
     cy.get("#article-2").within(() => {
-      cy.contains("Kista is on fire");
+      cy.contains("Benjamin Ingrosso får matshow på TV4");
     });
   });
 });
