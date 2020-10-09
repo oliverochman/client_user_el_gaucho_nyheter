@@ -1,5 +1,5 @@
 import { getArticles, getArticle } from "../modules/articles";
-import { Card, Image, Grid } from "semantic-ui-react";
+import { Card, Image } from "semantic-ui-react";
 import React, { useEffect, useState } from "react";
 import SingleArticle from "./SingleArticle";
 
@@ -38,12 +38,7 @@ const DisplayArticles = () => {
       {specificArticle ? (
         <SingleArticle article={specificArticle} />
       ) : (
-        // <div className="articles-container">{articlesList}</div>
-        <Grid>
-          <Grid.Row centered={true} columns="two">
-            {articlesList}
-          </Grid.Row>
-        </Grid>
+        <div className="articles-container">{articlesList}</div>
       )}
     </>
   );
