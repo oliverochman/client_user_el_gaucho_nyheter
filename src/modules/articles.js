@@ -1,13 +1,20 @@
 import axios from "axios";
 
-const getArticles = async () => {
-  let result = await axios.get("/articles");
-  return result.data.articles;
-};
+const Articles = {
+  async index() {
+    let result = await axios.get("/articles");
+    return result.data.articles;
+  },
 
-const getArticle = async (articleId) => {
-  let result = await axios.get(`/articles/${articleId}`);
-  return result.data.article;
-};
+  async show(articleId) {
+    try {
+      let result = await axios.get(`/articles/${articleId}`);
+      return result.data.article;  
+    } catch(error) {
+      // see how the backend sends error messages for the articles show action
+      return error.response.data.error_message;
+    }
+  }
+}
 
-export { getArticles, getArticle };
+export default Articles;
