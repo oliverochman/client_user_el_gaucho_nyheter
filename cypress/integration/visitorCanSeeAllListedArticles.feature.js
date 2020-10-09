@@ -9,17 +9,17 @@ describe("Visitor can see articles", () => {
     cy.visit("/");
   });
   it("visitor can see page header", () => {
-    cy.get("#header").should("contain", "El Gaucho Nyheter");
+    cy.get("[data-cy='header']").should("contain", "El Gaucho Nyheter");
   });
   it("shows first article ", () => {
-    cy.get("#article-1").within(() => {
+    cy.get("[data-cy='article-1']").within(() => {
       cy.contains(
         "Ny studie: Möjligt att utplåna fattigdomen och samtidigt rädda klimatet"
       );
     });
   });
   it("shows second article", () => {
-    cy.get("#article-2").within(() => {
+    cy.get("[data-cy='article-2']").within(() => {
       cy.contains("Benjamin Ingrosso får matshow på TV4");
     });
   });

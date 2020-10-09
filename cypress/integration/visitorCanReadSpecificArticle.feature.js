@@ -16,7 +16,7 @@ describe("Visitor can read an article's content", () => {
     cy.visit("/");
   });
   it("visitor can click on an article and read its content", () => {
-    cy.get("#article-1").click();
+    cy.get("[data-cy='article-1']").click();
     cy.get("[data-cy='content']").should(
       "contain",
       "Det är fullt möjligt att rädda jordens klimat och utplåna fattigdomen"

@@ -22,7 +22,7 @@ const DisplayArticles = () => {
     return (
       <Card
         onClick={() => getSpecificArticle(article.id)}
-        id={"article-" + article.id}
+        data-cy={"article-" + article.id}
       >
         <Image src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fwww.grade.com%2Fwp-content%2Fuploads%2F2020%2F03%2Fplaceholder.png" />
         <Card.Content>
