@@ -1,0 +1,28 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Ny studie: Möjligt att utplåna fattigdomen och samtidigt rädda klimatet",
+      "lead": "Den ”omöjliga ekvationen” går att lösa.",
+      "category": "News"
+    },
+    {
+      "id": 2,
+      "title": "Benjamin Ingrosso får matshow på TV4",
+      "lead": "TV4 knyter ännu en i klanen Wahlgren till sig.",
+      "category": "News"
+    },
+    {
+      "id": 3,
+      "title": "Ella Bohlin på kändisfesten – ansvarar för sjukvården i Stockholm",
+      "lead": "KD-toppen Ella Bohlin ansvarar för vård av äldre i Stockholm och kräver att allmänheten ska följa Folkhälsomyndighetens rekommendationer.",
+      "category": "News"
+    },
+    {
+      "id": 4,
+      "title": "De här magasinen läser svenskarna 2020",
+      "lead": "Allt fler personer väljer att ta del av sina favoritmagasin och tidningar via läsplattor och telefoner.",
+      "category": "News"
+    }
+  ]
+}

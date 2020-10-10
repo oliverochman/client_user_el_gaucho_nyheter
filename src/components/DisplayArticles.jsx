@@ -12,6 +12,7 @@ const DisplayArticles = () => {
     };
     getArticlesIndex();
   }, []);
+  
 
   return (
     <div className="articles-container">
@@ -30,6 +31,7 @@ const DisplayArticles = () => {
           </Card>
         );
       })}
+      
     </div>
   );
 };
