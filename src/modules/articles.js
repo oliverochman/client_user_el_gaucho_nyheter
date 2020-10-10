@@ -10,7 +10,7 @@ const Articles = {
       let result = await axios.get(`/articles/${articleId}`);
       return result.data.article;
     } catch (error) {
-      return error.response.data.error_message;
+      return error.response.data.error;
     }
   },
 };
