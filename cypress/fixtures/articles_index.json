@@ -2,23 +2,23 @@
   "articles": [
     {
       "id": 1,
-      "title": "Manchester City loves e-scooters",
-      "lead": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut odit eius facere tempora expedita, ratione itaque quidem sequi totam nulla? Eaque possimus sit a officia."
+      "title": "Ny studie: Möjligt att utplåna fattigdomen och samtidigt rädda klimatet",
+      "lead": "Den ”omöjliga ekvationen” går att lösa."
     },
     {
       "id": 2,
-      "title": "Kista is on fire",
-      "lead": "Least cars in sweden ratione itaque quidem sequi totam nulla? Eaque possimus sit a officia."
+      "title": "Benjamin Ingrosso får matshow på TV4",
+      "lead": "TV4 knyter ännu en i klanen Wahlgren till sig."
     },
     {
       "id": 3,
-      "title": "Stockholm is under attack",
-      "lead": "Blanditiis numquam id dolorum? Mollitia necessitatibus velit blanditiis iure, dicta unde."
+      "title": "Ella Bohlin på kändisfesten – ansvarar för sjukvården i Stockholm",
+      "lead": "KD-toppen Ella Bohlin ansvarar för vård av äldre i Stockholm och kräver att allmänheten ska följa Folkhälsomyndighetens rekommendationer."
     },
     {
       "id": 4,
-      "title": "New wave of infected people",
-      "lead": "Dolor, enim maxime reiciendis voluptatem et illum modi cupiditate dolorum deserunt maiores pariatur?"
+      "title": "De här magasinen läser svenskarna 2020",
+      "lead": "Allt fler personer väljer att ta del av sina favoritmagasin och tidningar via läsplattor och telefoner."
     }
   ]
 }
