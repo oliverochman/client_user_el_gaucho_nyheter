@@ -2,8 +2,9 @@ import { Card, Image } from "semantic-ui-react";
 import React, { useEffect, useState } from "react";
 import Articles from "../modules/articles";
 import { Link } from "react-router-dom";
+import { Header } from "./Header";
 
-const DisplayArticles = () => {
+const DisplayArticles = (props) => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
@@ -12,7 +13,10 @@ const DisplayArticles = () => {
     };
     getArticlesIndex();
   }, []);
-  
+
+  // getArticlesByCategory = async () => {
+  //   setArticles(await Articles.index(category));
+  //};
 
   return (
     <div className="articles-container">
@@ -31,7 +35,6 @@ const DisplayArticles = () => {
           </Card>
         );
       })}
-      
     </div>
   );
 };
