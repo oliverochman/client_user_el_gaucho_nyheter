@@ -1,9 +1,7 @@
 import React from "react";
 import DisplayArticles from "./components/DisplayArticles";
 import SingleArticle from "./components/SingleArticle";
-import { Menu } from "semantic-ui-react";
-
-import { Switch, Router, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 
 const App = () => {

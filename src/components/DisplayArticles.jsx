@@ -15,11 +15,7 @@ const DisplayArticles = () => {
     };
     
     getArticlesIndex();
-  },["",category]);
-
-  // getArticlesByCategory = async () => {
-  //   setArticles(await Articles.index(category));
-  //};
+  });
 
   return (
     <div className="articles-container">
