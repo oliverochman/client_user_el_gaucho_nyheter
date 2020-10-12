@@ -1,15 +1,14 @@
-describe("Visitor can see articles", () => {
-  xcontext('', () => {
-
-    beforeEach(() => {
-      cy.server();
-      cy.route({
-        method: "GET",
-        url: "http://localhost:3000/api/v1/articles",
-        response: "fixture:articles_index.json",
-      });
-      cy.visit("/");
+describe("Visitor can choose articles by categories", () => {
+  beforeEach(() => {
+    cy.server();
+    cy.route({
+      method: "GET",
+      url: "http://localhost:3000/api/v1/articles",
+      response: "fixture:articles_index.json",
     });
+    cy.visit("/");
+  });
+  context("", () => {
     it("visitor can see different categories in the header", () => {
       cy.get("[data-cy='news']").should("contain", "News");
       cy.get("[data-cy='sports']").should("contain", "Sports");
@@ -22,15 +21,14 @@ describe("Visitor can see articles", () => {
       cy.server();
       cy.route({
         method: "GET",
-        url: "http://localhost:3000/api/v1/articles/1",
+        url: "http://localhost:3000/api/v1/articles/?category=news",
         response: "fixture:articles_news.json",
       });
-      cy.visit("/");
     });
-    it("visitor can click on an article and read its content", () => {
+    it("Visitor can see the articles in the News category", () => {
       cy.get("[data-cy='news']").click();
       cy.get("[data-cy='article-4']").within(() => {
-        cy.contains("De här magasinen läser svenskarna 2020");
+        cy.contains("Amy Coney Barrett");
       });
     });
   });

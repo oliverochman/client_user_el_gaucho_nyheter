@@ -2,27 +2,27 @@
   "articles": [
     {
       "id": 1,
-      "title": "Ny studie: Möjligt att utplåna fattigdomen och samtidigt rädda klimatet",
-      "lead": "Den ”omöjliga ekvationen” går att lösa.",
-      "category": "News"
+      "title": "Are Europe's night trains back in fashion?",
+      "lead": "Sleeper trains were making a slow comeback in Europe before the pandemic,",
+      "category": "news"
     },
     {
       "id": 2,
-      "title": "Benjamin Ingrosso får matshow på TV4",
-      "lead": "TV4 knyter ännu en i klanen Wahlgren till sig.",
-      "category": "News"
+      "title": "US Election 2020: Anthony Fauci says Trump campaign ad quote misleading",
+      "lead": "Top US government scientist Anthony Fauci has said a clip of him used in a Trump campaign advert is misleading.",
+      "category": "news"
     },
     {
       "id": 3,
-      "title": "Ella Bohlin på kändisfesten – ansvarar för sjukvården i Stockholm",
-      "lead": "KD-toppen Ella Bohlin ansvarar för vård av äldre i Stockholm och kräver att allmänheten ska följa Folkhälsomyndighetens rekommendationer.",
-      "category": "News"
+      "title": "Covid-19: China's Qingdao to test nine million in five days",
+      "lead": "The Chinese city of Qingdao is testing its entire population of nine million people for Covid-19 over a period of five days.",
+      "category": "news"
     },
     {
       "id": 4,
-      "title": "De här magasinen läser svenskarna 2020",
-      "lead": "Allt fler personer väljer att ta del av sina favoritmagasin och tidningar via läsplattor och telefoner.",
-      "category": "News"
+      "title": "Amy Coney Barrett: Trump's Supreme Court nominee vows to 'apply law as written'",
+      "lead": "Amy Coney Barrett, US President Donald Trump's Supreme Court nominee,",
+      "category": "news"
     }
   ]
 }

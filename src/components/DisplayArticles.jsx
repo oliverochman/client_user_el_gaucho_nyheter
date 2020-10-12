@@ -5,14 +5,17 @@ import { Link, useParams } from "react-router-dom";
 
 const DisplayArticles = () => {
   const [articles, setArticles] = useState([]);
-  const {category} = useParams()
-
+  const {category} = useParams();
+  
+  
   useEffect(() => {
     const getArticlesIndex = async () => {
       setArticles(await Articles.index(category));
+      
     };
+    
     getArticlesIndex();
-  }, []);
+  },["",category]);
 
   // getArticlesByCategory = async () => {
   //   setArticles(await Articles.index(category));
@@ -20,7 +23,7 @@ const DisplayArticles = () => {
 
   return (
     <div className="articles-container">
-      <h1>{category}</h1>
+       {/* <h1>{category}</h1> */}
       {articles.map((article) => {
         return (
           <Card
