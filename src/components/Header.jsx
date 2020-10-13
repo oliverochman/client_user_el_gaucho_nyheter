@@ -7,6 +7,9 @@ const Header = () => {
     <Menu inverted>
       <Menu.Item>
         <h1 data-cy="header">El Gaucho Nyheter</h1>
+        <Menu.Item as={Link} to="/" data-cy="home">
+          Home
+        </Menu.Item>
         <Menu.Item as={Link} to="/news" data-cy="news">
           News
         </Menu.Item>

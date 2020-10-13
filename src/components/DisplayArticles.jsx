@@ -15,11 +15,10 @@ const DisplayArticles = () => {
     };
     
     getArticlesIndex();
-  });
+  },[category]);
 
   return (
     <div className="articles-container">
-       {/* <h1>{category}</h1> */}
       {articles.map((article) => {
         return (
           <Card
