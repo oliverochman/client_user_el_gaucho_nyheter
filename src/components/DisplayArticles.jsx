@@ -1,17 +1,21 @@
 import { Card, Image } from "semantic-ui-react";
 import React, { useEffect, useState } from "react";
 import Articles from "../modules/articles";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const DisplayArticles = () => {
   const [articles, setArticles] = useState([]);
-
+  const {category} = useParams();
+  
+  
   useEffect(() => {
     const getArticlesIndex = async () => {
-      setArticles(await Articles.index());
+      setArticles(await Articles.index(category));
+      
     };
+    
     getArticlesIndex();
-  }, []);
+  },[category]);
 
   return (
     <div className="articles-container">

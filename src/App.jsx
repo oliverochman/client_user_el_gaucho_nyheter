@@ -10,6 +10,7 @@ const App = () => {
       <Header />
       <Switch>
         <Route exact path="/" component={DisplayArticles} />
+        <Route exact path="/:category" component={DisplayArticles} />
         <Route exact path="/articles/:id" component={SingleArticle} />
       </Switch>
     </>
