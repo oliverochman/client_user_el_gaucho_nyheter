@@ -1,0 +1,16 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Arsene Wenger Q&A: Arsenal, VAR, Mesut Ozil, Zlatan Ibrahimovic and more",
+      "lead": "Arsene Wenger is widely credited with helping to revolutionise English football.",
+      "category": "sports"
+    },
+    {
+      "id": 2,
+      "title": "Jolyon Palmer column: Daniel Ricciardo shining for revitalised Renault",
+      "lead": "Former F1 driver Jolyon Palmer, who left Renault during the 2017 season",
+      "category": "sports"
+    }
+  ]
+}
