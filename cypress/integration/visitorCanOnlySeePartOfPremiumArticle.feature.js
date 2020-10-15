@@ -24,7 +24,7 @@ describe("Premium article is", () => {
         "contain",
         "Ny studie: Möjligt att utplåna fattigdomen och samtidigt rädda klimatet"
       );
-      cy.get("[data-cy='buy-subscription']").should("contain", "This is a premium article. Buy subscription in order to read it")
+      cy.get("[data-cy='premium-message']").should("contain", "This is a premium article. Buy subscription in order to read it")
     });
   });
 });

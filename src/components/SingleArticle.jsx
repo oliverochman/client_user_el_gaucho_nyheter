@@ -30,7 +30,7 @@ const SingleArticle = () => {
         <Grid celled>
           <Grid.Row>
             <Grid.Column width={13}>
-              <Header>{article.title}</Header>
+              <Header data-cy="title">{article.title}</Header>
             </Grid.Column>
           </Grid.Row>
 
@@ -51,6 +51,7 @@ const SingleArticle = () => {
             </Grid.Column>
             <Grid.Column width={5}></Grid.Column>
           </Grid.Row>
+          {article.premium && <p data-cy="premium-message">This is a premium article. Buy subscription in order to read it</p>}
         </Grid>
       )}
     </>
