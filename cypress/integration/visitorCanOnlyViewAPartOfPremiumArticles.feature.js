@@ -16,17 +16,26 @@ describe("Premium article is", () => {
         response: "fixture:articles_show_premium.json",
       });
       cy.visit("/");
+      cy.get("[data-cy='article-2']").click();
     });
 
     it("visitor can click on an article and read its content", () => {
-      cy.get("[data-cy='article-2']").click();
       cy.get("[data-cy='title']").should(
         "contain",
         "Ny studie: Möjligt att utplåna fattigdomen och samtidigt rädda klimatet"
       );
+
+      cy.get("[data-cy='content']").should(
+        "have.text",
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec."
+      );
       cy.get("[data-cy='premium-message']").should(
         "contain",
-        "This is a premium article. Buy subscription in order to read it"
+        "This is a premium article, become a subscriber to read full content"
+      );
+      cy.get("[data-cy='subscription-button']").should(
+        "contain",
+        "Buy subscription"
       );
     });
   });
