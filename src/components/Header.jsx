@@ -20,6 +20,9 @@ const Header = () => {
           Politics
         </Menu.Item>
       </Menu.Item>
+      <Menu.Item as={Link} to="/login" data-cy="login" position="right">
+        Log In
+      </Menu.Item>
     </Menu>
   );
 };

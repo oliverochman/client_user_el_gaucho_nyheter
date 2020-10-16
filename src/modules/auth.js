@@ -1,9 +1,27 @@
 import JtockAuth from "j-tockauth";
 
+let apiUrl;
+if (process.env.NODE_ENV === "production") {
+  apiUrl = "https://";
+} else {
+  apiUrl = "http://localhost:3000";
+}
+
 const auth = new JtockAuth({
-  host: "http://127.0.0.1:3000",
+  host: apiUrl,
   prefixUrl: "/api/v1",
-  debug: false,
 });
 
-export default auth;
+const login = async (event) => {
+  event.preventDefault();
+  try {
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    const response = await auth.signIn(email, password);
+  } catch (error) {
+    return error.response.data.error;
+  }
+};
+
+export { login };
