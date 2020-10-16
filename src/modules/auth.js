@@ -33,4 +33,14 @@ const login = async (event, dispatch, history) => {
   }
 };
 
-export { login };
+const getAuthHeaders = () => {
+  let headers = sessionStorage.getItem("credentials")
+  headers = JSON.parse(headers)
+  headers = {
+    ...headers,
+    "Content-type": "application/json",
+    Accept: "application/json"
+  }
+}
+
+export { login, getAuthHeaders };

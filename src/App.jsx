@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import DisplayArticles from "./components/DisplayArticles";
 import SingleArticle from "./components/SingleArticle";
 import { Switch, Route } from "react-router-dom";
@@ -20,7 +20,7 @@ const App = () => {
           <BecomeSubscriber />
         </ProtectedRoute>
 
-        <Route exact path="/" component={DisplayArticles} />
+        <Route path="/" component={DisplayArticles} />
 
       </Switch>
     </>

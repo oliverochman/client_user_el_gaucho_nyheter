@@ -2,12 +2,21 @@ import React from 'react'
 import {
   CardExpiryElement,
   CardCVCElement,
-  CardNumberElement
+  CardNumberElement,
+  injectStripe
 } from 'react-stripe-elements'
 
-const PaymentForm = ({ payWithStripe }) => {
+const PaymentForm = (props) => {
+  const payWithStripe = async (e) => {
+    e.preventDefault()
+
+    let stripeReponse = await props.stripe.createToken()
+
+    props.submitPayment(stripeReponse.token.id)
+  }
+
   return (
-    <form onSubmit={submitPayment}>
+    <form onSubmit={payWithStripe}>
       <div data-cy="card-number">
         <label>Card Number</label>
         <CardNumberElement />
@@ -28,4 +37,4 @@ const PaymentForm = ({ payWithStripe }) => {
   )
 }
 
-export default PaymentForm
+export default injectStripe(PaymentForm);

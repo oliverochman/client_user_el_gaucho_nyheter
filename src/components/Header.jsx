@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux'
@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 const Header = () => {
   const authenticated = useSelector(state => state.authenticated)
   const currentUser = useSelector(state => state.currentUser)
+
   return (
     <Menu inverted>
       <Menu.Item>

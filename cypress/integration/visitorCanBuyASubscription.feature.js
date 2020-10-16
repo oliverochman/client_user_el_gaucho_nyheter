@@ -1,6 +1,12 @@
 describe("User can buy a subscription", () => {
   beforeEach(() => {
     cy.login();
+
+    cy.route({
+      method: "POST",
+      url: "http://localhost:3000/api/v1/subscriptions",
+      response: "fixture:subscriptions_create_success.json"
+    });
   });
   it("successfully", () => {
     cy.get('[data-cy="become-subscriber"]').click()
@@ -11,7 +17,7 @@ describe("User can buy a subscription", () => {
 
     cy.get('button').contains("Start your subscription").click()
 
-    cy.get("[data-cy=payment-message]").contains("Payment successfull")
+    cy.get("[data-cy=message]").contains("Payment successfull")
     cy.get('[data-cy="become-subscriber"]').should("not.exist")
   });
 });
