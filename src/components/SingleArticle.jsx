@@ -14,7 +14,7 @@ const SingleArticle = () => {
 
   useEffect(() => {
     const getSingleArticle = async () => {
-      const response = await Articles.show(id);
+      const response = await Articles.show(id, authenticated);
 
       if (response.id) {
         setArticle(response);

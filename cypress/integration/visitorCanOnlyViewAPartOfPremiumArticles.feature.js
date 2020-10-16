@@ -19,7 +19,7 @@ describe("Premium article is", () => {
       cy.get("[data-cy='article-2']").click();
     });
 
-    xit("visitor can click on an article and read its content", () => {
+    it("visitor can click on an article and read its content", () => {
       cy.get("[data-cy='title']").should(
         "contain",
         "Ny studie: Möjligt att utplåna fattigdomen och samtidigt rädda klimatet"
@@ -75,7 +75,7 @@ describe("Premium article is", () => {
       cy.get("[data-cy='article-2']").click();
     });
 
-    xit("visitor can click on an article and read its content", () => {
+    it("visitor can click on an article and read its content", () => {
       cy.get("[data-cy='title']").should(
         "contain",
         "Ny studie: Möjligt att utplåna fattigdomen och samtidigt rädda klimatet"
