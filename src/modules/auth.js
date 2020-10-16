@@ -34,7 +34,7 @@ const login = async (event, dispatch, history) => {
 };
 
 const getAuthHeaders = () => {
-  let headers = sessionStorage.getItem("credentials")
+  let headers = sessionStorage.getItem("J-tockAuth-Storage")
   headers = JSON.parse(headers)
   headers = {
     ...headers,
