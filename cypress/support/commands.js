@@ -1,3 +1,12 @@
+Cypress.Commands.add("typeInStripeElement", (id, field, value) => {
+  cy.get(`[data-cy=${id}]`).within(() => {
+    cy.get('iframe[name^="__privateStripeFrame"]').then(($iframe) => {
+      const $body = $iframe.contents().find("body");
+      cy.wrap($body).find(`input[name=${field}]`).type(`${value}`, { delay: 10 });
+    });
+  })
+})
+
 Cypress.Commands.add("login", () => {
   cy.server();
   cy.route({
