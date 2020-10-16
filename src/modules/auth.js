@@ -12,13 +12,21 @@ const auth = new JtockAuth({
   prefixUrl: "/api/v1",
 });
 
-const login = async (event) => {
+const login = async (event, dispatch, history) => {
   event.preventDefault();
   try {
     const email = event.target.email.value;
     const password = event.target.password.value;
 
     const response = await auth.signIn(email, password);
+    dispatch({
+      type: "AUTHENTICATE",
+      payload: {
+        authenticated: response.success,
+        currentUser: response.data,
+      },
+    });
+    history.replace({ pathname: "/" });
   } catch (error) {
     return error.response.data.error;
   }
