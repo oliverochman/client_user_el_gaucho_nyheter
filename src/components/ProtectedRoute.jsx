@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 
 const ProtectedRoute = ({ children }) => {
   const authenticated = useSelector(state => state.authenticated)
+  debugger;
 
   return (
     <Route

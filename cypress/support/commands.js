@@ -7,12 +7,12 @@ Cypress.Commands.add("typeInStripeElement", (id, field, value) => {
   })
 })
 
-Cypress.Commands.add("login", () => {
+Cypress.Commands.add("login", (role) => {
   cy.server();
   cy.route({
     method: "POST",
     url: "http://localhost:3000/api/v1/auth/*",
-    response: `fixture:successful_login.json`,
+    response: `fixture:successful_login_${role}.json`,
     headers: {
       uid: `user@mail.com`,
     },
@@ -27,7 +27,7 @@ Cypress.Commands.add("login", () => {
   cy.route({
     method: "GET",
     url: "http://localhost:3000/api/v1/auth/*",
-    response: `fixture:successful_login.json`,
+    response: `fixture:successful_login_${role}.json`,
     headers: {
       uid: `user@mail.com`,
     },

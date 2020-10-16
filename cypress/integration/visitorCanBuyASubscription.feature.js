@@ -1,6 +1,6 @@
 describe("User can buy a subscription", () => {
   beforeEach(() => {
-    cy.login();
+    cy.login("registered");
 
     cy.route({
       method: "POST",
