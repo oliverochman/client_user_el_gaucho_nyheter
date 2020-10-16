@@ -1,11 +1,15 @@
 import React from "react";
 import { Button, Form, Container } from "semantic-ui-react";
 import { login } from "../modules/auth";
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
 const LoginForm = () => {
+  const dispatch = useDispatch()
+  const history = useHistory()
   return (
     <Container>
-      <Form data-cy="login-form" onSubmit={(event) => login(event)}>
+      <Form data-cy="login-form" onSubmit={(event) => login(event, dispatch, history)}>
         <Form.Input
           icon="user"
           iconPosition="left"
