@@ -1,4 +1,4 @@
-import { Image, Grid, Header } from "semantic-ui-react";
+import { Image, Grid, Header, Button, Segment } from "semantic-ui-react";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Articles from "../modules/articles";
@@ -30,7 +30,7 @@ const SingleArticle = () => {
         <Grid celled>
           <Grid.Row>
             <Grid.Column width={13}>
-              <Header>{article.title}</Header>
+              <Header data-cy="title">{article.title}</Header>
             </Grid.Column>
           </Grid.Row>
 
@@ -49,8 +49,20 @@ const SingleArticle = () => {
             <Grid.Column width={10}>
               <p data-cy="content">{article.content}</p>
             </Grid.Column>
+
             <Grid.Column width={5}></Grid.Column>
           </Grid.Row>
+          {article.premium && (
+            <Segment color="black" textAlign="center">
+              <h4 data-cy="premium-message">
+                This is a premium article, become a subscriber to read full
+                content{" "}
+              </h4>
+              <Button color="red" data-cy="subscription-button">
+                Buy subscription
+              </Button>
+            </Segment>
+          )}
         </Grid>
       )}
     </>
