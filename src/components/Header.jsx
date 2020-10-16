@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const authenticated = useSelector((state) => state.authenticated);
+  const currentUser = useSelector((state) => state.currentUser);
   return (
     <Menu inverted>
       <Menu.Item>
@@ -26,14 +27,16 @@ const Header = () => {
         Log In
       </Menu.Item>
       {authenticated ? (
-        <Menu.Item
-          as={Link}
-          to="/become-subscriber"
-          data-cy="become-subscriber"
-          position="right"
-        >
-          Become Subscriber
-        </Menu.Item>
+        currentUser.role != "subscriber" && (
+          <Menu.Item
+            as={Link}
+            to="/become-subscriber"
+            data-cy="become-subscriber"
+            position="right"
+          >
+            Become Subscriber
+          </Menu.Item>
+        )
       ) : (
         <Menu.Item as={Link} to="/login" data-cy="login" position="right">
           Log In
