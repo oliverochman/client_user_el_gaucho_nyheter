@@ -19,6 +19,8 @@ const login = async (event) => {
     const password = event.target.password.value;
 
     const response = await auth.signIn(email, password);
+
+    debugger;
   } catch (error) {
     return error.response.data.error;
   }

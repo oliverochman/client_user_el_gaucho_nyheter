@@ -27,7 +27,7 @@ const LoginForm = () => {
           id="password"
           data-cy="password"
         />
-        <Button data-cy="button" id="Submit" content="Submit" primary />
+        <Button data-cy="submit" id="Submit" content="Submit" primary />
       </Form>
     </Container>
   );
