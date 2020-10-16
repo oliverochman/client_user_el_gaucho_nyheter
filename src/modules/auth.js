@@ -26,10 +26,21 @@ const login = async (event, dispatch, history) => {
         currentUser: response.data,
       },
     });
+
     history.replace({ pathname: "/" });
   } catch (error) {
     return error.response.data.error;
   }
 };
 
-export { login };
+const getAuthHeaders = () => {
+  let headers = sessionStorage.getItem("J-tockAuth-Storage");
+  headers = JSON.parse(headers);
+  headers = {
+    ...headers,
+    "Content-type": "application/json",
+    Accept: "application/json",
+  };
+};
+
+export { login, getAuthHeaders };
