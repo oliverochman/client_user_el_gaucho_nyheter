@@ -40,7 +40,7 @@ describe("Premium article is", () => {
     });
   });
 
-  context("not visible for only registered user", () => {
+  context("not visible for registered user", () => {
     beforeEach(() => {
       cy.server();
       cy.login("registered");

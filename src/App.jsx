@@ -4,8 +4,8 @@ import SingleArticle from "./components/SingleArticle";
 import { Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
 import LoginForm from './components/LoginForm';
-import ProtectedRoute from './components/ProtectedRoute'
-import BecomeSubscriber from './components/BecomeSubscriber'
+import ProtectedRoute from './components/ProtectedRoute';
+import BecomeSubscriber from './components/BecomeSubscriber';
 
 const App = () => {
   return (

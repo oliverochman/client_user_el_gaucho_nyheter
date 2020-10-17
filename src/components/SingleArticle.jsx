@@ -61,7 +61,7 @@ const SingleArticle = () => {
                 content{" "}
               </h4>
               <Button as={Link} to={authenticated ? "/become-subscriber" : "/login"} color="red" data-cy="subscription-button">
-                {authenticated ? "Buy subscription" : "You nedd to login to become subscriber"}
+                {authenticated ? "Buy subscription" : "You need to login to become subscriber"}
               </Button>
             </Segment>
           )}
