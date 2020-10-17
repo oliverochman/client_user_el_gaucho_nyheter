@@ -16,6 +16,13 @@ const rootReducer = (state = initialState, action) => {
           role: action.payload.role,
         },
       };
+    case "FAIL_AUTHENTICATE":
+      return {
+        ...state,
+        errorMessage: action.payload.errorMessage,
+        renderLoginForm: true,
+      };
+
     default:
       return state;
   }

@@ -5,7 +5,7 @@ import { Elements } from "react-stripe-elements";
 import PaymentForm from "./PaymentForm";
 import Subscriptions from "../modules/subscriptions";
 
-const BecomeSubscriber = (props) => {
+const BecomeSubscriber = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -19,6 +19,14 @@ const BecomeSubscriber = (props) => {
         },
       });
       history.push("/", { message: paymentStatus.message });
+    } else {
+      dispatch({
+        type: "FAIL_AUTHENTICATE",
+        payload: {
+          role: "registered",
+        },
+      });
+      history.push("/become-subscriber", { message: paymentStatus.message });
     }
   };
 
