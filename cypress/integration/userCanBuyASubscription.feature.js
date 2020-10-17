@@ -26,10 +26,10 @@ describe("User can buy a subscription", () => {
       cy.route({
         method: "POST",
         url: "http://localhost:3000/api/v1/subscriptions",
-        response: "fixture:subscriptions_create_unsuccess.json",
+        response: "fixture:subscriptions_create_unsuccess.json",  
         status: 422,
       });
-    });
+    }); 
 
     it("with declined card", () => {
       cy.get('[data-cy="become-subscriber"]').click();
