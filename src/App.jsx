@@ -20,8 +20,6 @@ const App = () => {
         <ProtectedRoute path="/become-subscriber">
           <BecomeSubscriber />
         </ProtectedRoute>
-
-        <Route exact path="/" component={DisplayArticles} />
       </Switch>
     </>
   );

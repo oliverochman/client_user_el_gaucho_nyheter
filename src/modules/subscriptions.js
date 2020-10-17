@@ -1,5 +1,4 @@
 import axios from "axios";
-import { create } from "react-test-renderer";
 import { getAuthHeaders } from "./auth";
 
 const Subscriptions = {

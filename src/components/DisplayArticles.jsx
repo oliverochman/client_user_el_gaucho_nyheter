@@ -1,21 +1,30 @@
 import { Card, Image } from "semantic-ui-react";
 import React, { useEffect, useState } from "react";
 import Articles from "../modules/articles";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 
 const DisplayArticles = () => {
   const [articles, setArticles] = useState([]);
   const { category } = useParams();
+  const [message, setMessage] = useState();
+  let location = useLocation();
 
   useEffect(() => {
     const getArticlesIndex = async () => {
       setArticles(await Articles.index(category));
     };
-
     getArticlesIndex();
   }, [category]);
 
+  useEffect(() => {
+    if (location.state) {
+      setMessage(location.state.message)
+    }
+  }, [location])
+
   return (
+    <>
+    {message && <p data-cy="message">{message}</p>}
     <div className="articles-container">
       {articles.map((article) => {
         return (
@@ -33,6 +42,7 @@ const DisplayArticles = () => {
         );
       })}
     </div>
+    </>
   );
 };
 
