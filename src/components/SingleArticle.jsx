@@ -1,17 +1,19 @@
 import { Image, Grid, Header, Button, Segment } from "semantic-ui-react";
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Articles from "../modules/articles";
+import { useSelector } from "react-redux";
 
 const SingleArticle = () => {
   const [article, setArticle] = useState({});
   const [message, setMessage] = useState("");
+  const authenticated = useSelector((state) => state.authenticated);
+  const currentUser = useSelector((state) => state.currentUser);
   const { id } = useParams();
 
   useEffect(() => {
     const getSingleArticle = async () => {
-      const response = await Articles.show(id);
-
+      const response = await Articles.show(id, authenticated);
       if (response.id) {
         setArticle(response);
       } else {
@@ -20,7 +22,7 @@ const SingleArticle = () => {
     };
 
     getSingleArticle();
-  }, [id]);
+  }, [id, authenticated]);
 
   return (
     <>
@@ -52,14 +54,21 @@ const SingleArticle = () => {
 
             <Grid.Column width={5}></Grid.Column>
           </Grid.Row>
-          {article.premium && (
+          {article.premium && currentUser.role !== "subscriber" && (
             <Segment color="black" textAlign="center">
               <h4 data-cy="premium-message">
                 This is a premium article, become a subscriber to read full
                 content{" "}
               </h4>
-              <Button color="red" data-cy="subscription-button">
-                Buy subscription
+              <Button
+                as={Link}
+                to={authenticated ? "/become-subscriber" : "/login"}
+                color="red"
+                data-cy="subscription-button"
+              >
+                {authenticated
+                  ? "Buy subscription"
+                  : "You need to login to become subscriber"}
               </Button>
             </Segment>
           )}
