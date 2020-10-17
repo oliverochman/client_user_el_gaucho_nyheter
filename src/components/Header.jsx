@@ -26,14 +26,14 @@ const Header = () => {
       </Menu.Item>
       {
         authenticated ? (
-          currentUser.role != "subscriber" && (
+          currentUser.role !== "subscriber" && (
             <Menu.Item as={Link} to="/become-subscriber" data-cy="become-subscriber" position="right">
               Become Subscriber
             </Menu.Item>
           )
         ) : (
           <Menu.Item as={Link} to="/login" data-cy="login" position="right">
-            Log In
+            Login
           </Menu.Item>
         )
       }
