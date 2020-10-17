@@ -7,10 +7,13 @@ import { useHistory } from "react-router-dom";
 const LoginForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
- 
+
   return (
     <Container>
-      <Form data-cy="login-form" onSubmit={(event) => login(event, dispatch, history)}>
+      <Form
+        data-cy="login-form"
+        onSubmit={(event) => login(event, dispatch, history)}
+      >
         <Form.Input
           icon="user"
           iconPosition="left"
@@ -18,7 +21,6 @@ const LoginForm = () => {
           placeholder="email"
           name="email"
           type="email"
-          id="email"
           data-cy="email"
         />
 
@@ -29,10 +31,9 @@ const LoginForm = () => {
           label="Password:"
           type="password"
           name="password"
-          id="password"
           data-cy="password"
         />
-        <Button data-cy="submit" id="Submit" content="Submit" primary />
+        <Button data-cy="submit" content="Submit" primary />
       </Form>
     </Container>
   );

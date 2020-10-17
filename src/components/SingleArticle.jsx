@@ -2,13 +2,13 @@ import { Image, Grid, Header, Button, Segment } from "semantic-ui-react";
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import Articles from "../modules/articles";
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
 
 const SingleArticle = () => {
   const [article, setArticle] = useState({});
   const [message, setMessage] = useState("");
-  const authenticated = useSelector(state => state.authenticated)
-  const currentUser = useSelector(state => state.currentUser)
+  const authenticated = useSelector((state) => state.authenticated);
+  const currentUser = useSelector((state) => state.currentUser);
   const { id } = useParams();
 
   useEffect(() => {
@@ -60,8 +60,15 @@ const SingleArticle = () => {
                 This is a premium article, become a subscriber to read full
                 content{" "}
               </h4>
-              <Button as={Link} to={authenticated ? "/become-subscriber" : "/login"} color="red" data-cy="subscription-button">
-                {authenticated ? "Buy subscription" : "You need to login to become subscriber"}
+              <Button
+                as={Link}
+                to={authenticated ? "/become-subscriber" : "/login"}
+                color="red"
+                data-cy="subscription-button"
+              >
+                {authenticated
+                  ? "Buy subscription"
+                  : "You need to login to become subscriber"}
               </Button>
             </Segment>
           )}

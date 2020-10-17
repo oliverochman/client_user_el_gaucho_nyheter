@@ -23,12 +23,11 @@ describe("User can buy a subscription", () => {
 
   context("Unsuccessfull transaction", () => {
     beforeEach(() => {
-      cy.login("registered");
-
       cy.route({
         method: "POST",
         url: "http://localhost:3000/api/v1/subscriptions",
         response: "fixture:subscriptions_create_unsuccess.json",
+        status: 422,
       });
     });
 
@@ -41,7 +40,7 @@ describe("User can buy a subscription", () => {
 
       cy.get("button").contains("Start your subscription").click();
 
-      cy.get("[data-cy=message]").contains("Payment unsuccessfull");
+      cy.get("[data-cy=message]").contains("Payment unsuccessful");
       cy.get('[data-cy="become-subscriber"]').should("exist");
     });
   });

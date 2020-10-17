@@ -32,7 +32,7 @@ const PaymentForm = (props) => {
           <CardCVCElement />
         </div>
 
-        <Button>Start your subscription</Button>
+        <Button color="blue">Start your subscription</Button>
       </Form>
     </Container>
   );

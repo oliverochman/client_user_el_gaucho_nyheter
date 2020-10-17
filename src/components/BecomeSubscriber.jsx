@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Message } from "semantic-ui-react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { Elements } from "react-stripe-elements";
@@ -6,11 +7,13 @@ import PaymentForm from "./PaymentForm";
 import Subscriptions from "../modules/subscriptions";
 
 const BecomeSubscriber = () => {
+  const [message, setMessage] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
 
   const submitPayment = async (stripeToken) => {
     let paymentStatus = await Subscriptions.create(stripeToken);
+    debugger;
     if (paymentStatus.success) {
       dispatch({
         type: "USER_IS_SUBSCRIBER",
@@ -20,20 +23,21 @@ const BecomeSubscriber = () => {
       });
       history.push("/", { message: paymentStatus.message });
     } else {
-      dispatch({
-        type: "FAIL_AUTHENTICATE",
-        payload: {
-          role: "registered",
-        },
-      });
-      history.push("/become-subscriber", { message: paymentStatus.message });
+      setMessage(paymentStatus.message);
     }
   };
 
   return (
-    <Elements>
-      <PaymentForm submitPayment={submitPayment} />
-    </Elements>
+    <>
+      {message && (
+        <Message data-cy="message" color="red">
+          {message}
+        </Message>
+      )}
+      <Elements>
+        <PaymentForm submitPayment={submitPayment} />
+      </Elements>
+    </>
   );
 };
 

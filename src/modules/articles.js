@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getAuthHeaders } from './auth'
+import { getAuthHeaders } from "./auth";
 
 const Articles = {
   async index(category) {
@@ -18,9 +18,11 @@ const Articles = {
 
   async show(articleId, authenticated) {
     try {
-      let result
+      let result;
       if (authenticated) {
-        result = await axios.get(`/articles/${articleId}`, { headers: getAuthHeaders()});
+        result = await axios.get(`/articles/${articleId}`, {
+          headers: getAuthHeaders(),
+        });
       } else {
         result = await axios.get(`/articles/${articleId}`);
       }

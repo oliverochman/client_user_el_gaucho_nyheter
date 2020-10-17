@@ -1,11 +1,11 @@
 import React from "react";
 import { Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
 
 const Header = () => {
-  const authenticated = useSelector(state => state.authenticated)
-  const currentUser = useSelector(state => state.currentUser)
+  const authenticated = useSelector((state) => state.authenticated);
+  const currentUser = useSelector((state) => state.currentUser);
 
   return (
     <Menu inverted>
@@ -24,19 +24,22 @@ const Header = () => {
           Politics
         </Menu.Item>
       </Menu.Item>
-      {
-        authenticated ? (
-          currentUser.role !== "subscriber" && (
-            <Menu.Item as={Link} to="/become-subscriber" data-cy="become-subscriber" position="right">
-              Become Subscriber
-            </Menu.Item>
-          )
-        ) : (
-          <Menu.Item as={Link} to="/login" data-cy="login" position="right">
-            Login
+      {authenticated ? (
+        currentUser.role !== "subscriber" && (
+          <Menu.Item
+            as={Link}
+            to="/become-subscriber"
+            data-cy="become-subscriber"
+            position="right"
+          >
+            Become Subscriber
           </Menu.Item>
         )
-      }
+      ) : (
+        <Menu.Item as={Link} to="/login" data-cy="login" position="right">
+          Login
+        </Menu.Item>
+      )}
     </Menu>
   );
 };
