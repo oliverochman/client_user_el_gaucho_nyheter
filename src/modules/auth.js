@@ -41,6 +41,7 @@ const getAuthHeaders = () => {
     "Content-type": "application/json",
     Accept: "application/json",
   };
-};
+return headers
+};  
 
 export { login, getAuthHeaders };
