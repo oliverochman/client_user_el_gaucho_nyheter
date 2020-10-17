@@ -5,7 +5,7 @@ import { Elements } from "react-stripe-elements";
 import PaymentForm from "./PaymentForm";
 import Subscriptions from "../modules/subscriptions";
 
-const BecomeSubscriber = () => {
+const BecomeSubscriber = (props) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
