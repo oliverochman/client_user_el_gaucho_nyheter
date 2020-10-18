@@ -5,10 +5,11 @@ describe("User can see current country", () => {
     cy.visit("/", stubLocation({ latitude: XXXXXX, longitude: XXXXX }));
   });
 
-  it("that displays correctly", () => {
+  it("Visitor can see the articles in the News category", () => {
+    cy.get("[data-cy='news']").click();
     cy.get("[data-cy='current-location']").should(
       "contain",
-      "You are in America"
+      "Local news from: Sweden"
     );
   });
 });

@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import LoginForm from "./components/LoginForm";
 import ProtectedRoute from "./components/ProtectedRoute";
 import BecomeSubscriber from "./components/BecomeSubscriber";
+import LocalNews from './components/LocalNews';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Header />
       <Switch>
         <Route exact path="/category/:category" component={DisplayArticles} />
+        <Route exact path="/category/:news" component={LocalNews} />
         <Route exact path="/articles/:id" component={SingleArticle} />
         <Route exact path="/login" component={LoginForm} />
 

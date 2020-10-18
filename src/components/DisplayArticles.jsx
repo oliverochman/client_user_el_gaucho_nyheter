@@ -32,6 +32,7 @@ const DisplayArticles = () => {
       <div className="articles-container">
         {articles.map((article) => {
           return (
+            <>
             <Card
               as={Link}
               to={`/articles/${article.id}`}
@@ -43,6 +44,7 @@ const DisplayArticles = () => {
                 <Card.Description>{article.lead}</Card.Description>
               </Card.Content>
             </Card>
+            </>
           );
         })}
       </div>
