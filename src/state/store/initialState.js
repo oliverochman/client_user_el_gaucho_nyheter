@@ -3,6 +3,9 @@ const initialState = {
   currentUser: {
     role: "",
   },
+  location: {
+    country: "",
+  },
 };
 
 export default initialState;
