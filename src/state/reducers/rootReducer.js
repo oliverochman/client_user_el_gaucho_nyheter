@@ -19,7 +19,7 @@ const rootReducer = (state = initialState, action) => {
       case "SET_LOCATION":
         return {
           ...state,
-          location: action.payload.location
+          location: action.payload
         }
     default:
       return state;

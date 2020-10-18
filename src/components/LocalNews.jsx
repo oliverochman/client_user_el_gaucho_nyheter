@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCurrentPosition } from '../modules/location'
+import { getCurrentPosition } from "../modules/location";
 
 const LocalNews = () => {
-  let country = useSelector(state => state.location.country);
+  let country = useSelector((state) => state.location.country);
   const dispatch = useDispatch();
 
   useEffect(() => {
