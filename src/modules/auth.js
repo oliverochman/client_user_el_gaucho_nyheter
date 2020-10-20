@@ -33,6 +33,27 @@ const login = async (event, dispatch, history) => {
   }
 };
 
+const signUp = async (event, dispatch, history) => {
+  event.preventDefault();
+  try {
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    const response = await auth.signUp(email, password);
+    dispatch({
+      type: "AUTHENTICATE",
+      payload: {
+        authenticated: response.success,
+        currentUser: response.data,
+      },
+    });
+
+    history.replace({ pathname: "/" });
+  } catch (error) {
+    return error.response.data.error;
+  }
+};
+
 const getAuthHeaders = () => {
   let headers = sessionStorage.getItem("J-tockAuth-Storage");
   headers = JSON.parse(headers);
@@ -44,4 +65,4 @@ const getAuthHeaders = () => {
   return headers;
 };
 
-export { login, getAuthHeaders };
+export { login, signUp, getAuthHeaders };

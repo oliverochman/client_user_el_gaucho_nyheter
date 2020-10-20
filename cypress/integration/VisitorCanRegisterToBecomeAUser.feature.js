@@ -1,4 +1,3 @@
-
 describe("Visitor can register to become a user", () => {
   beforeEach(() => {
     cy.visit("/")
@@ -15,8 +14,8 @@ describe("Visitor can register to become a user", () => {
     });
 
     it("successfully registered", () => {
-      cy.get("[data-cy='login']").click()
-      cy.get("[data-cy='register']").click()
+      cy.get("[data-cy='login']").click({force: true})
+      cy.get("[data-cy='register']").click({force: true})
     
       cy.get("[data-cy='registration-form']").within(() => {
         cy.get("[data-cy='email']").type("user123@mail.com");
@@ -43,8 +42,8 @@ describe("Visitor can register to become a user", () => {
     });
 
     it("with invalid email", () => {
-      cy.get("[data-cy='login']").click()
-      cy.get("[data-cy='register']").click()
+      cy.get("[data-cy='login']").click({force: true})
+      cy.get("[data-cy='register']").click({force: true})
       cy.get("[data-cy='registration-form']").within(() => {
         cy.get("[data-cy='email']").type("usermail.com");
         cy.get("[data-cy='password']").type("password");
@@ -55,8 +54,8 @@ describe("Visitor can register to become a user", () => {
     });
 
     it("with non matching passwords", () => {
-      cy.get("[data-cy='login']").click()
-      cy.get("[data-cy='register']").click()
+      cy.get("[data-cy='login']").click({force: true})
+      cy.get("[data-cy='register']").click({force: true})
       cy.get("[data-cy='registration-form']").within(() => {
         cy.get("[data-cy='email']").type("user@mail.com");
         cy.get("[data-cy='password']").type("password");

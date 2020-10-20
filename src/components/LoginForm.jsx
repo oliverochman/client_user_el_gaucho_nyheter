@@ -41,7 +41,7 @@ const LoginForm = () => {
 
       <Container>
        
-        <Menu.Item as={Link} to="/register" data-cy="register">Don't have an account yet? Click here to sign up!</Menu.Item>
+        <Menu.Item as={Link} to="/register" data-cy="register">Don't have an account yet? Click here to sign up</Menu.Item>
    
         </Container>
     </>
