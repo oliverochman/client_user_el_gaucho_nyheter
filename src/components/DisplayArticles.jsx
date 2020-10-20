@@ -8,13 +8,13 @@ const DisplayArticles = () => {
   const { category } = useParams();
   const [message, setMessage] = useState();
   let location = useLocation();
-
+/* 
   useEffect(() => {
     const getArticlesIndex = async () => {
       setArticles(await Articles.index(category));
     };
     getArticlesIndex();
-  }, [category]);
+  }, [category]); */
 
   useEffect(() => {
     if (location.state) {

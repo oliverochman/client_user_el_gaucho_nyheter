@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Form, Container } from "semantic-ui-react";
+import { Button, Form, Container, Menu } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 import { login } from "../modules/auth";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -9,6 +10,7 @@ const LoginForm = () => {
   const history = useHistory();
 
   return (
+    <>
     <Container>
       <Form
         data-cy="login-form"
@@ -35,7 +37,14 @@ const LoginForm = () => {
         />
         <Button data-cy="submit" content="Submit" primary />
       </Form>
-    </Container>
+      </Container>
+
+      <Container>
+       
+        <Menu.Item as={Link} to="/register" data-cy="register" width={2}>Don't have an account yet? Click here to sign up!</Menu.Item>
+   
+        </Container>
+    </>
   );
 };
 
