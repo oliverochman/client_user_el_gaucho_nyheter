@@ -1,5 +1,5 @@
 {
-    "message": "Email is not an email",
+    "message": "Invalid input, please try again.",
     "success": false
     
   }
