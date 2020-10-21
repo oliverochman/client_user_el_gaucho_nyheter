@@ -39,10 +39,9 @@ const SingleArticle = () => {
           <Grid.Row>
             <Grid.Column width={10}>
               <h5>{article.lead}</h5>
-              <Image
-                size="medium"
-                src="https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fwww.grade.com%2Fwp-content%2Fuploads%2F2020%2F03%2Fplaceholder.png"
-              />
+              {article.image && (
+                <Image data-cy="image" size="medium" src={article.image} />
+              )}
             </Grid.Column>
             <Grid.Column width={5}></Grid.Column>
           </Grid.Row>

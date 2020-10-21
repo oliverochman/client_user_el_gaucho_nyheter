@@ -1,13 +1,13 @@
 describe("User can buy a subscription", () => {
   beforeEach(() => {
     cy.login("registered");
-
     cy.route({
       method: "POST",
       url: "http://localhost:3000/api/v1/subscriptions",
       response: "fixture:subscriptions_create_success.json",
     });
   });
+  
   it("successfully", () => {
     cy.get('[data-cy="become-subscriber"]').click();
     cy.wait(1000);
