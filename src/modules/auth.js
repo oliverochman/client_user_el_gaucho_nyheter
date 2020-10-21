@@ -17,7 +17,6 @@ const login = async (event, dispatch, history) => {
   try {
     const email = event.target.email.value;
     const password = event.target.password.value;
-
     const response = await auth.signIn(email, password);
     dispatch({
       type: "AUTHENTICATE",
@@ -38,19 +37,24 @@ const signUp = async (event, dispatch, history) => {
   try {
     const email = event.target.email.value;
     const password = event.target.password.value;
-   
     const response = await auth.signUp(email, password);
+
     dispatch({
       type: "AUTHENTICATE",
       payload: {
-        authenticated: response.success,
-        currentUser: response.data,
+        authenticated: response.data.success,
+        currentUser: response.data.data,
       },
     });
 
-    history.push("/", { message: response.data.message });
+    history.push("/", { message: response.data.data.message });
   } catch (error) {
-    return error.response.data.error;
+    dispatch({
+      type: "AUTHENTICATE",
+      payload: {
+        message: "Invalid input, please try again.",
+      },
+    });
   }
 };
 

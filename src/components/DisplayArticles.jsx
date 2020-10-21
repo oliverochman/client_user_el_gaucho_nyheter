@@ -9,12 +9,12 @@ const DisplayArticles = () => {
   const [message, setMessage] = useState();
   let location = useLocation();
 
-  /* useEffect(() => {
+  useEffect(() => {
     const getArticlesIndex = async () => {
       setArticles(await Articles.index(category));
     };
     getArticlesIndex();
-  }, [category]); */
+  }, [category]);
 
   useEffect(() => {
     if (location.state) {

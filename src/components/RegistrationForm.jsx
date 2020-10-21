@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Button, Form, Container, Message } from "semantic-ui-react";
 import { signUp } from "../modules/auth";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [message, setMessage] = useState("");
-  
+  const message = useSelector((state) => state.message);
+
   return (
     <Container>
       <Form
@@ -46,7 +46,6 @@ const RegistrationForm = () => {
         />
         <Button data-cy="submit" content="Submit" primary />
       </Form>
-
 
       {message && (
         <Message data-cy="message" color="red">

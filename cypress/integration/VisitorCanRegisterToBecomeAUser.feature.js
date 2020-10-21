@@ -1,6 +1,11 @@
 describe("Visitor can register to become a user", () => {
   beforeEach(() => {
-    cy.server();
+        cy.server();
+        cy.route({
+          method: "GET",
+          url: "http://localhost:3000/api/v1/articles",
+          response: "fixture:articles_index.json",
+        });
     cy.visit("/");
     cy.get("[data-cy='login']").click();
     cy.get("[data-cy='register']").click();
@@ -11,8 +16,18 @@ describe("Visitor can register to become a user", () => {
       cy.server();
       cy.route({
         method: "POST",
-        url: "http://localhost:3000/api/v1/subscriptions",
+        url: "**/auth**",
         response: "fixture:registration_success.json",
+      });
+      cy.route({
+        method: "GET",
+        url: "http://localhost:3000/api/v1/auth/**",
+        response: "fixture:registration_success.json",
+      });
+      cy.route({
+        method: "GET",
+        url: "http://localhost:3000/api/v1/articles",
+        response: "fixture:articles_index.json",
       });
     });
 
@@ -31,24 +46,20 @@ describe("Visitor can register to become a user", () => {
 
   context("unsuccessfully", () => {
     beforeEach(() => {
+      cy.server()
       cy.route({
         method: "POST",
-        url: "http://localhost:3000/api/v1/auth/sign_in",
+        url: "**/auth**",
         status: "422",
         response: {
           response: "fixture:registration_unsuccess.json",
         },
       });
-    });
-
-    it("with invalid email", () => {
-      cy.get("[data-cy='registration-form']").within(() => {
-        cy.get("[data-cy='email']").type("usermail.com");
-        cy.get("[data-cy='password']").type("password");
-        cy.get("[data-cy='password-confirmation']").type("password");
-        cy.get("[data-cy='submit']").click();
+      cy.route({
+        method: "GET",
+        url: "http://localhost:3000/api/v1/articles",
+        response: "fixture:articles_index.json",
       });
-      cy.get("#message").should("contain", "Email must be valid");
     });
 
     it("with non matching passwords", () => {
@@ -58,7 +69,7 @@ describe("Visitor can register to become a user", () => {
         cy.get("[data-cy='password-confirmation']").type("paswrd");
         cy.get("[data-cy='submit']").click();
       });
-      cy.get("#message").should("contain", "Invalid input, please try again.");
+      cy.get("[data-cy='message']").should("contain", "Invalid input, please try again.");
     });
   });
 });
