@@ -36,8 +36,9 @@ const DisplayArticles = () => {
               as={Link}
               to={`/articles/${article.id}`}
               data-cy={"article-" + article.id}
-            >
+            > {article.url && (
               <Image data-cy="image" src={article.url} />
+            )}
               <Card.Content>
                 <Card.Header>{article.title}</Card.Header>
                 <Card.Description>{article.lead}</Card.Description>

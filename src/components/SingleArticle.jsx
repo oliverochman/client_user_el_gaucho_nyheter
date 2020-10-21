@@ -39,8 +39,9 @@ const SingleArticle = () => {
           <Grid.Row>
             <Grid.Column width={10}>
               <h5>{article.lead}</h5>
-
-              <Image data-cy="image" size="medium" src={article.url} />
+              {article.url && (
+                <Image data-cy="image" size="medium" src={article.url} />
+              )}
             </Grid.Column>
             <Grid.Column width={5}></Grid.Column>
           </Grid.Row>
