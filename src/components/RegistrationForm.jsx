@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Form, Container, Message } from "semantic-ui-react";
 import { signUp } from "../modules/auth";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const message = useSelector((state) => state.message);
+  const [message, setMessage] = useState();
+
+  const register = async (e) => {
+    e.preventDefault();
+    const response = await signUp(e, dispatch, history);
+    setMessage(response);
+  };
 
   return (
     <Container>
-      <Form
-        data-cy="registration-form"
-        onSubmit={(event) => signUp(event, dispatch, history)}
-      >
+      <Form data-cy="registration-form" onSubmit={register}>
         <Form.Input
           data-cy="email"
           icon="user"

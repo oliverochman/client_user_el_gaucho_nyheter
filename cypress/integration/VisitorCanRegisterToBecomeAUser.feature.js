@@ -1,11 +1,11 @@
 describe("Visitor can register to become a user", () => {
   beforeEach(() => {
-        cy.server();
-        cy.route({
-          method: "GET",
-          url: "http://localhost:3000/api/v1/articles",
-          response: "fixture:articles_index.json",
-        });
+    cy.server();
+    cy.route({
+      method: "GET",
+      url: "http://localhost:3000/api/v1/articles",
+      response: "fixture:articles_index.json",
+    });
     cy.visit("/");
     cy.get("[data-cy='login']").click();
     cy.get("[data-cy='register']").click();
@@ -46,14 +46,12 @@ describe("Visitor can register to become a user", () => {
 
   context("unsuccessfully", () => {
     beforeEach(() => {
-      cy.server()
+      cy.server();
       cy.route({
         method: "POST",
         url: "**/auth**",
         status: "422",
-        response: {
-          response: "fixture:registration_unsuccess.json",
-        },
+        response: "fixture:registration_unsuccess.json",
       });
       cy.route({
         method: "GET",
@@ -69,7 +67,10 @@ describe("Visitor can register to become a user", () => {
         cy.get("[data-cy='password-confirmation']").type("paswrd");
         cy.get("[data-cy='submit']").click();
       });
-      cy.get("[data-cy='message']").should("contain", "Invalid input, please try again.");
+      cy.get("[data-cy='message']").should(
+        "contain",
+        "Password confirmation doesn't match Password"
+      );
     });
   });
 });

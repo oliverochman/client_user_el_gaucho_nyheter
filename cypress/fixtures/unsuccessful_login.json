@@ -1,0 +1,6 @@
+{
+  "success": false,
+  "errors": {
+    "full_messages": "Invalid login credentials. Please try again"
+  }
+}
