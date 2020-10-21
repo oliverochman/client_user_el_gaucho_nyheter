@@ -37,7 +37,8 @@ const signUp = async (event, dispatch, history) => {
   try {
     const email = event.target.email.value;
     const password = event.target.password.value;
-    const response = await auth.signUp(email, password);
+    const password_confirmation = event.target.password_confirmation.value;
+    const response = await auth.signUp(email, password, password_confirmation);
 
     dispatch({
       type: "AUTHENTICATE",

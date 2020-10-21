@@ -41,7 +41,7 @@ const RegistrationForm = () => {
           iconPosition="left"
           placeholder="confirm password"
           label="Confirm Password:"
-          type="password_confirmation"
+          type="password"
           name="password_confirmation"
         />
         <Button data-cy="submit" content="Submit" primary />
