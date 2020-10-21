@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Form, Container, Message } from "semantic-ui-react";
 import { signUp } from "../modules/auth";
 import { useDispatch, useSelector } from "react-redux";
