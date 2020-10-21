@@ -38,7 +38,7 @@ const signUp = async (event, dispatch, history) => {
   try {
     const email = event.target.email.value;
     const password = event.target.password.value;
-
+   
     const response = await auth.signUp(email, password);
     dispatch({
       type: "AUTHENTICATE",
@@ -48,7 +48,7 @@ const signUp = async (event, dispatch, history) => {
       },
     });
 
-    history.replace({ pathname: "/" });
+    history.push("/", { message: response.data.message });
   } catch (error) {
     return error.response.data.error;
   }
