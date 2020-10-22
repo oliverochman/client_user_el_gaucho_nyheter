@@ -5,8 +5,7 @@ const rootReducer = (state = initialState, action) => {
     case "AUTHENTICATE":
       return {
         ...state,
-        authenticated: action.payload.authenticated,
-        currentUser: action.payload.currentUser,
+        ...action.payload,
       };
     case "USER_IS_SUBSCRIBER":
       return {

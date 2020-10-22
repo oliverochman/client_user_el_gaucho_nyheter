@@ -1,0 +1,8 @@
+{
+  "success": false,
+  "errors": {
+    "full_messages": [
+      "Password confirmation doesn't match Password"
+    ]
+  }
+}

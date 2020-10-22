@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import LoginForm from "./components/LoginForm";
 import ProtectedRoute from "./components/ProtectedRoute";
 import BecomeSubscriber from "./components/BecomeSubscriber";
+import RegistrationForm from './components/RegistrationForm'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route exact path="/category/:category" component={DisplayArticles} />
         <Route exact path="/articles/:id" component={SingleArticle} />
         <Route exact path="/login" component={LoginForm} />
+        <Route exact path="/register" component={RegistrationForm} />
 
         <ProtectedRoute path="/become-subscriber">
           <BecomeSubscriber />

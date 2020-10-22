@@ -17,7 +17,6 @@ const login = async (event, dispatch, history) => {
   try {
     const email = event.target.email.value;
     const password = event.target.password.value;
-
     const response = await auth.signIn(email, password);
     dispatch({
       type: "AUTHENTICATE",
@@ -29,7 +28,36 @@ const login = async (event, dispatch, history) => {
 
     history.replace({ pathname: "/" });
   } catch (error) {
-    return error.response.data.error;
+    return error.response.data.errors[0];
+  }
+};
+
+const signUp = async (event, dispatch, history) => {
+  event.preventDefault();
+  try {
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    const password_confirmation = event.target.password_confirmation.value;
+    const response = await auth.signUp({
+      email: email,
+      password: password,
+      password_confirmation: password_confirmation,
+    });
+
+    dispatch({
+      type: "AUTHENTICATE",
+      payload: {
+        authenticated: response.data.success,
+        currentUser: response.data.data,
+      },
+    });
+
+    history.push("/", {
+      message:
+        "Registration successful, now you have access to El-gaucho mobile app. Visit your appstore!",
+    });
+  } catch (error) {
+    return error.response.data.errors.full_messages[0];
   }
 };
 
@@ -44,4 +72,4 @@ const getAuthHeaders = () => {
   return headers;
 };
 
-export { login, getAuthHeaders };
+export { login, signUp, getAuthHeaders };
