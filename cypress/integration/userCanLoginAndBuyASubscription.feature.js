@@ -47,10 +47,23 @@ describe("User login unsuccess", () => {
   beforeEach(() => {
     cy.server();
     cy.route({
+      method: "POST",
+      url: "http://localhost:3000/api/v1/auth/**",
+      status: "422",
+      response: "fixture:unsuccessful_login.json",
+    });
+    cy.route({
+      method: "GET",
+      url: "/**auth**",
+      response: "fixture:unsuccessful_login.json",
+    });
+
+    cy.route({
       method: "GET",
       url: "http://localhost:3000/api/v1/articles",
       response: "fixture:articles_index.json",
     });
+
     cy.visit("/");
     cy.get("[data-cy='login']").click();
   });
@@ -61,7 +74,7 @@ describe("User login unsuccess", () => {
       cy.get("[data-cy='password']").type("wrongpassword");
       cy.get("[data-cy='submit']").click();
     });
-    cy.get("[data-cy=message]").should(
+    cy.get("[data-cy='message']").should(
       "contain",
       "Invalid login credentials. Please try again"
     );
