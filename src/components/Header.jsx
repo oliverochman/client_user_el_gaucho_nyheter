@@ -38,7 +38,7 @@ const Header = () => {
             Become Subscriber
           </Menu.Item>
         )
-      ) : (
+      ) : ( 
         <Menu.Item as={Link} to="/login" data-cy="login" position="right">
           Login
         </Menu.Item>
