@@ -11,7 +11,7 @@ describe("User can see news from current country", () => {
       });
       cy.route({
         method: "GET",
-        url: "http://localhost:3000/api/v1/articles/?local=sweden",
+        url: "http://localhost:3000/api/v1/articles/?location=Sweden",
         response: "fixture:local_news_sweden.json",
       });
       cy.visit("/", stubLocation({ latitude: 59.3501, longitude: 17.9658 }));
