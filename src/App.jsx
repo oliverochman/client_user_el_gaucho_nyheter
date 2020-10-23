@@ -14,7 +14,7 @@ const App = () => {
       <Header />
       <Switch>
         <Route exact path="/category/:category" component={DisplayArticles} />
-        <Route exact path="/localnews" component={LocalNews} />
+       
         <Route exact path="/articles/:id" component={SingleArticle} />
         <Route exact path="/login" component={LoginForm} />
 

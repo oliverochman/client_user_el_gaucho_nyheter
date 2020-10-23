@@ -13,7 +13,7 @@ const BecomeSubscriber = () => {
 
   const submitPayment = async (stripeToken) => {
     let paymentStatus = await Subscriptions.create(stripeToken);
-    debugger;
+
     if (paymentStatus.success) {
       dispatch({
         type: "USER_IS_SUBSCRIBER",

@@ -23,7 +23,7 @@ const Header = () => {
         <Menu.Item as={Link} to="/category/politics" data-cy="politics">
           Politics
         </Menu.Item>
-        <Menu.Item as={Link} to="/localnews" data-cy="local-news">
+        <Menu.Item as={Link} to="/category/local" data-cy="local-news">
           LOCAL NEWS
         </Menu.Item>
       </Menu.Item>

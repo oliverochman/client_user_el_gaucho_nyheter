@@ -16,6 +16,15 @@ const Articles = {
     }
   },
 
+  async localIndex(location) {
+    try {
+      let result = await axios.get(`/articles/?location=${location}`);
+      return result.data.articles;
+    } catch (error) {
+      return error.response.data.error;
+    }
+  },
+
   async show(articleId, authenticated) {
     try {
       let result;

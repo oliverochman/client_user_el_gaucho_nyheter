@@ -2,16 +2,26 @@ import { Card, Image, Message } from "semantic-ui-react";
 import React, { useEffect, useState } from "react";
 import Articles from "../modules/articles";
 import { Link, useParams, useLocation } from "react-router-dom";
+import { getCurrentPosition } from "../modules/location";
+import { useDispatch, useSelector } from "react-redux";
 
 const DisplayArticles = () => {
   const [articles, setArticles] = useState([]);
   const { category } = useParams();
   const [message, setMessage] = useState();
+  const dispatch = useDispatch();
+
   let location = useLocation();
 
   useEffect(() => {
     const getArticlesIndex = async () => {
-      setArticles(await Articles.index(category));
+      if (category === "local") {
+        const country = await getCurrentPosition(dispatch);
+        const articles = await Articles.localIndex(country);
+        setArticles(articles);
+      } else {
+        setArticles(await Articles.index(category));
+      }
     };
     getArticlesIndex();
   }, [category]);
